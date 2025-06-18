@@ -57,7 +57,7 @@ jobs:
         EOF
 
     - name: Terraform init
-      run: terraform init
+      run: terraform init -backend-config="key=${{ inputs.region }}/terraform.tfstate"
 
     - name: Terraform plan
       run: terraform plan
