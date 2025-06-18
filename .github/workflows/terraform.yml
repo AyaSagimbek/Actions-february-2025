@@ -12,7 +12,18 @@ jobs:
     - name: Checkout SCM
       uses: actions/checkout@v4
       with:
-        repository: ayasagimbek/Actions-terraform
+        repository: AyaSagimbek/Actions-terraform
+
+    - name: Download Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: "1.12.2"
 
     - name: Terraform init
       run: terraform init
+
+    - name: Terraform plan
+      run: terraform plan
+
+    - name: Terraform apply
+      run: terraform apply -auto-approve
